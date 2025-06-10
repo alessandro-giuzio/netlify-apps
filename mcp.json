@@ -1,0 +1,26 @@
+{
+  "servers": [
+    {
+      "name": "Netlify MCP",
+      "type": "netlify",
+      "url": "https://api.netlify.com/api/v1",
+      "auth": {
+        "type": "oauth",
+        "token": "${env:NETLIFY_AUTH_TOKEN}"
+      },
+      "sites": [
+        {
+          "id": "${env:NETLIFY_SITE_ID}",
+          "name": "My Netlify Site"
+        }
+      ],
+      "functions": {
+        "directory": "netlify/functions"
+      },
+      "deploy": {
+        "buildCommand": "npm run build",
+        "publishDirectory": "dist"
+      }
+    }
+  ]
+}
